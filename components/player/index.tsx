@@ -22,12 +22,18 @@ import {
   SpeakerIcon,
   ThreeDotsIcon,
 } from "@/components/icons";
+import { DefaultProps } from "@/types";
 
-type Prop = {};
+type Prop = DefaultProps & {};
 
-const Player: React.FC<Prop> = () => {
+const Player: React.FC<Prop> = ({ className }) => {
   return (
-    <div className="bg-player py-3 px-5 rounded-medium flex gap-1.5 items-center">
+    <div
+      className={clsx(
+        "bg-player py-3 px-5 rounded-medium flex gap-1.5 items-center",
+        className,
+      )}
+    >
       <button
         aria-label="play"
         className="grid place-content-center p-3 rounded-full bg-player-play"

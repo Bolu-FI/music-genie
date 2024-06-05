@@ -832,7 +832,7 @@ export const PauseIcon = ({
   </svg>
 );
 
-export const LeftIcon = ({
+export const LeftArrowIcon = ({
   size = 40.41,
   height,
   width,
@@ -840,12 +840,12 @@ export const LeftIcon = ({
 }: IconSvgProps) => (
   <svg
     height={size || height}
-    viewBox="0 0 41 40"
+    viewBox="0 0 25 21"
     width={size || width}
     {...props}
   >
     <path
-      d="M19.9608 10.2056L5.64865 10.2056M5.64865 10.2056L11.5419 16.0989M5.64865 10.2056L11.5419 4.31239"
+      d="M19.9608 10.5792L5.64865 10.5792M5.64865 10.5792L11.5419 16.4724M5.64865 10.5792L11.5419 4.68593"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -862,12 +862,12 @@ export const RightArrowIcon = ({
 }: IconSvgProps) => (
   <svg
     height={size || height}
-    viewBox="0 0 41 40"
+    viewBox="0 0 24 21"
     width={size || width}
     {...props}
   >
     <path
-      d="M5.05945 10.2055H19.3716M19.3716 10.2055L13.4784 4.31226M19.3716 10.2055L13.4784 16.0987"
+      d="M5.05933 10.579H19.3715M19.3715 10.579L13.4782 4.68579M19.3715 10.579L13.4782 16.4723"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -884,13 +884,13 @@ export const ThreeDotsIcon = ({
 }: IconSvgProps) => (
   <svg
     height={size || height}
-    viewBox="0 0 41 40"
+    viewBox="0 0 24 24"
     width={size || width}
     {...props}
   >
-    <circle cx="12.7687" cy="20.7058" fill="currentColor" r="1.68378" />
-    <circle cx="21.1877" cy="20.7058" fill="currentColor" r="1.68378" />
-    <circle cx="29.6066" cy="20.7058" fill="currentColor" r="1.68378" />
+    <circle cx="3.78657" cy="11.7846" fill="currentColor" r="1.68378" />
+    <circle cx="12.2055" cy="11.7846" fill="currentColor" r="1.68378" />
+    <circle cx="20.6242" cy="11.7846" fill="currentColor" r="1.68378" />
   </svg>
 );
 

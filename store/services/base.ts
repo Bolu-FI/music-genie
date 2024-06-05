@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-import { getToken } from "@/helpers";
+import { getCookie } from "cookies-next";
+import { USER_TOKEN_KEY } from "@/constants";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "https://api.spotify.com/",
   prepareHeaders: async (headers) => {
-    headers.set("Authorization", `Bearer ${getToken()}`);
+    headers.set("Authorization", `Bearer ${getCookie(USER_TOKEN_KEY)}`);
 
     return headers;
   },

@@ -12,6 +12,13 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-satoshi)"],
       },
+      gridTemplateAreas: {
+        layout: [
+          "header header header",
+          "left-sidebar main right-sidebar",
+          "left-sidebar footer footer",
+        ],
+      },
     },
   },
   darkMode: "class",
@@ -41,5 +48,6 @@ module.exports = {
         },
       },
     }),
+    require("@savvywombat/tailwindcss-grid-area"),
   ],
 };

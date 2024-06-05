@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 
 import { SiteConfig, siteConfig } from "@/config/site";
-import { IconSvgProps } from "@/types";
+import { DefaultProps, IconSvgProps } from "@/types";
 import { ChevronRightIcon } from "@/components/icons";
 
 const menuItemClass =
@@ -76,11 +76,16 @@ const MenuItem = ({ menu }: { menu: MenuType }) => {
   );
 };
 
-type Prop = {};
+type Prop = DefaultProps & {};
 
-const Sidebar: React.FC<Prop> = () => {
+const Sidebar: React.FC<Prop> = ({ className }) => {
   return (
-    <aside className="flex flex-col gap-3 overflow-y-auto overflow-x-hidden text-sm scroll-padding">
+    <aside
+      className={clsx(
+        "flex flex-col gap-3 overflow-y-auto overflow-x-hidden text-sm scroll-padding",
+        className,
+      )}
+    >
       {siteConfig.extraMenu.map((item) => (
         <MenuItem key={item.label} menu={item} />
       ))}

@@ -44,17 +44,13 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="w-screen mt-3 mx-auto flex-grow grid grid-cols-[minmax(80px,_220px)_1fr_auto] overflow-x-hidden">
-              <Sidebar />
-              <div className="flex flex-col gap-2 pr-2 pb-2.5">
-                <section className="border rounded-large border-secondary grow">
-                  {children}
-                </section>
-                <Player />
-              </div>
-            </main>
+          <div className="relative h-screen grid grid-areas-layout grid-cols-[auto_1fr] grid-rows-[auto_1fr_auto] pt-3 pb-5 px-5">
+            <Navbar className="grid-in-header max-h-[54px]" />
+            <Sidebar className="grid-in-left-sidebar mt-3 w-[220px]" />
+            <section className="grid-in-main border rounded-large my-3 border-secondary grow overflow-y-auto">
+              {children}
+            </section>
+            <Player className="grid-in-footer" />
           </div>
         </Providers>
       </body>

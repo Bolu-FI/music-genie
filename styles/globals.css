@@ -3,10 +3,25 @@
 @tailwind utilities;
 
 .scroll-padding {
-    scrollbar-gutter: stable both-edges;
+    scrollbar-gutter: stable;
 }
 
 * {
     letter-spacing: 0.03em;
+}
+
+/*html, body {*/
+/*    overflow: hidden;*/
+/*    height: 100vh;*/
+/*}*/
+
+@layer utilities {
+    .subheading {
+        @apply text-primary font-bold text-xl
+    }
+
+    .section {
+        @apply flex flex-col gap-7 mt-4
+    }
 }
 
