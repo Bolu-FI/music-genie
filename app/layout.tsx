@@ -45,12 +45,12 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative h-screen grid grid-areas-layout grid-cols-[auto_1fr] grid-rows-[auto_1fr_auto] pt-3 pb-5 px-5">
-            <Navbar className="grid-in-header max-h-[54px]" />
-            <Sidebar className="grid-in-left-sidebar mt-3 w-[220px]" />
-            <section className="grid-in-main border rounded-large my-3 border-secondary grow overflow-y-auto">
+            <Navbar className="area-header max-h-[54px]" />
+            <Sidebar className="area-left-sidebar mt-3 w-[220px]" />
+            <section className="area-main border rounded-large my-3 border-secondary grow overflow-y-auto">
               {children}
             </section>
-            <Player className="grid-in-footer" />
+            <Player className="area-footer" />
           </div>
         </Providers>
       </body>

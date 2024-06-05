@@ -1,4 +1,5 @@
 import { nextui } from "@nextui-org/theme";
+import { gridAreas } from "tailwindcss-grid-areas";
 
 /** @type {import("tailwindcss").Config} */
 module.exports = {
@@ -48,6 +49,12 @@ module.exports = {
         },
       },
     }),
-    require("@savvywombat/tailwindcss-grid-area"),
+    gridAreas({
+      layout: [
+        "header header header",
+        "left-sidebar main right-sidebar",
+        "left-sidebar footer footer",
+      ],
+    }),
   ],
 };

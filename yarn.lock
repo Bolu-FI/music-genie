@@ -3930,6 +3930,11 @@ tailwind-variants@^0.1.20:
   dependencies:
     tailwind-merge "^1.14.0"
 
+tailwindcss-grid-areas@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-grid-areas/-/tailwindcss-grid-areas-0.1.1.tgz#1e6f6d8aaee7b4e2799a00aab792b63139778b79"
+  integrity sha512-r1Cuhe4Z+ebz74udfHNoLy9A0hY3V+1bo/BBQCfrdNaVC8/ptrUP0CEYQAMT8Lm6/ujCHByMbs2G06Zwbzp0kg==
+
 tailwindcss@3.4.3:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.3.tgz#be48f5283df77dfced705451319a5dffb8621519"
