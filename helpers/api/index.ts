@@ -60,6 +60,29 @@ export class Api {
       body?: Record<string, any>;
     },
   ) {
+    return this.mutate<T>(endpoint, "POST", config);
+  }
+
+  static async put<T extends Record<string, any> | string>(
+    endpoint: string,
+    config?: {
+      query?: Record<string, any>;
+      headers?: Record<string, any>;
+      body?: Record<string, any>;
+    },
+  ) {
+    return this.mutate<T>(endpoint, "PUT", config);
+  }
+
+  private static async mutate<T extends Record<string, any> | string>(
+    endpoint: string,
+    method: "PUT" | "POST",
+    config?: {
+      query?: Record<string, any>;
+      headers?: Record<string, any>;
+      body?: Record<string, any>;
+    },
+  ) {
     const url = new URL(endpoint);
 
     url.search = new URLSearchParams(
@@ -67,7 +90,7 @@ export class Api {
     ).toString();
 
     let response = await fetch(url, {
-      method: "POST",
+      method: method,
       headers: { ...this.headers, ...config?.headers },
       body: JSON.stringify(config?.body),
     });
@@ -89,7 +112,7 @@ export class Api {
       }
     }
 
-    if (response.status !== 200) {
+    if (![200, 201, 204].includes(response.status)) {
       const data = (await response.json()) as any;
 
       throw data.message;

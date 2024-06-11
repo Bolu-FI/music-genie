@@ -10,3 +10,6 @@ export const baseUrl = "https://api.spotify.com/v1";
 export const MADE_FOR_YOU_CATEGORY_ID = "0JQ5DAt0tbjZptfcdMSKl3";
 export const NEW_RELEASES_CATEGORY_ID = "0JQ5DAqbMKFz6FAsUtgAab";
 export const ON_REPEAT_PLAYLIST_ID = "37i9dQZF1Epv6lkBVeARpX";
+
+export const LAYOUT_LIST_KEY = "spotify_clone_layout_list";
+export const STORE_KEY = "spotify_clone_store";

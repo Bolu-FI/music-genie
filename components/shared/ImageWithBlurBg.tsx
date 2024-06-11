@@ -1,19 +1,21 @@
 import React, { ReactElement } from "react";
 import clsx from "clsx";
 
-import { useImage } from "@/hooks/useImage";
-
 type Prop = {
   src: string;
   className?: string;
+  color?: string;
   children: ({ src }: { src: string }) => ReactElement;
 };
 
-const ImageWithBlurBg: React.FC<Prop> = ({ src, children, className }) => {
-  const { color } = useImage(src);
-
+const ImageWithBlurBg: React.FC<Prop> = ({
+  src,
+  children,
+  className,
+  color,
+}) => {
   return (
-    <div className={clsx(className, "flex flex-col")}>
+    <div className={clsx(className, "flex flex-col w-fit")}>
       <div className="rounded-t-lg w-full scale-75 h-[10px] overflow-hidden">
         <div
           className="blur-[10px] rounded-t-lg w-full h-full"

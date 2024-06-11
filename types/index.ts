@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import React, { SVGProps } from "react";
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
@@ -79,6 +79,9 @@ export type Playlist = {
   public: boolean;
   images: ItemImage[];
   type: "playlist";
+  tracks: {
+    total: number;
+  };
 };
 
 export type Artist = {
@@ -121,9 +124,70 @@ export type Track = {
   popularity: number;
   href: string;
   name: string;
+  uri: string;
   type: "track";
+  id: string;
+  release_date: string;
+  release_date_precision: string;
+};
+
+export type Show = {
+  copyrights: Array<{
+    text: string;
+    type: string;
+  }>;
+  description: string;
+  html_description: string;
+  explicit: boolean;
+  id: string;
+  images: ItemImage[];
+  name: string;
+  publisher: string;
+  uri: string;
+  total_episodes: number;
+};
+
+export type Episode = {
+  audio_preview_url: string;
+  description: string;
+  html_description: string;
+  duration_ms: number;
+  href: string;
+  id: string;
+  images: ItemImage[];
+  name: string;
+  release_date: string;
+  release_date_precision: string;
+  resume_point: {
+    fully_played: boolean;
+    resume_position_ms: number;
+  };
+  type: "episode";
+  uri: string;
 };
 
 export type DefaultProps = {
   className?: string;
+};
+
+export type Layout = {
+  category: "music" | "podcast" | "all";
+  pinned: boolean;
+  id: string;
+  hidden: boolean;
+  element: React.FC;
+  title: string;
+};
+
+export type LayoutType = "music" | "podcast" | "all";
+
+export type Queue = {
+  name: string;
+  items: Track[];
+};
+
+export type PlayingState = {
+  isPlaying: boolean;
+  repeat: boolean;
+  shuffle: boolean;
 };

@@ -53,7 +53,7 @@ module.exports = {
       layout: [
         "header header header",
         "left-sidebar main right-sidebar",
-        "left-sidebar footer footer",
+        "footer footer footer",
       ],
     }),
   ],

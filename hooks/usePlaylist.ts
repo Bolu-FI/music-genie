@@ -1,7 +1,11 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
-import { FetchPlaylistsResponse } from "@/store/services/playlist/types";
+import {
+  FetchPlaylistItemsPayload,
+  FetchPlaylistItemsResponse,
+  FetchPlaylistsResponse
+} from "@/store/services/playlist/types";
 import { PlaylistService } from "@/store/services/playlist";
 import { Playlist } from "@/types";
 import { MADE_FOR_YOU_CATEGORY_ID } from "@/constants";
@@ -116,5 +120,42 @@ export const useGetFriendMixes = () => {
         playlist.name.includes("Friend") || playlist.name.includes("+"),
     ),
     isLoading,
+  };
+};
+
+export const useGetPlaylistItems = ({
+                                      enabled = true,
+                                      ...payload
+                                    }: FetchPlaylistItemsPayload & { enabled?: boolean }) => {
+  const {
+    data,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    isFetching,
+    refetc,
+  } = useInfiniteQuery<FetchPlaylistItemsResponse>({
+    queryKey: ["playlist-items", ...Object.keys(payload)],
+    queryFn: ({ pageParam }: any) =>
+      PlaylistService.getPlaylistItems({ ...payload, offset: pageParam }),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, allPages) =>
+      (allPages.length + 1) * payload.limit < lastPage.total
+        ? payload.limit * allPages.length
+        : undefined,
+    enabled: enable,
+  });
+
+  return {
+    tracks:
+      data?.pages.reduce(
+        (prev, next) => [...prev, ...next.items.map((item) => item.track)],
+        [] as unknown as Array<FetchPlaylistItemsResponse["items"][0]["track"],
+      ) || [],
+    hasNextPage,
+    fetchNextPage,
+    fetchTracks: refetch,
+    isFetching,
+    isFetchingNextPag,
   };
 };

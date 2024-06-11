@@ -30,7 +30,7 @@ const Player: React.FC<Prop> = ({ className }) => {
   return (
     <div
       className={clsx(
-        "bg-player py-3 px-5 rounded-medium flex gap-1.5 items-center",
+        "bg-player py-1.5 px-3 rounded-medium flex gap-1.5 items-center",
         className,
       )}
     >
@@ -91,11 +91,11 @@ const TrackDetails = ({ className }: { className?: string }) => (
       alt="NextUI hero Image"
       as={NextImage}
       className="row-span-3"
-      height={64}
+      height={48}
       radius="sm"
       shadow="sm"
       src="https://i.scdn.co/image/ab67616d000048517359994525d219f64872d3b1"
-      width={64}
+      width={48}
     />
     <div className="flex flex-col text-foreground text-sm">
       <p className="text-primary">Get Lucky</p>

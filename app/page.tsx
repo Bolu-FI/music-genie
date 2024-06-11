@@ -1,9 +1,9 @@
 "use client";
 
 import { Tab, Tabs } from "@nextui-org/tabs";
-import AllTabLayout from "@/components/home/AllTabLayout";
-import MusicTabLayout from "@/components/home/MusicTabLayout";
-import PodcastTabLayout from "@/components/home/PodcastTabLayout";
+
+import { Layout } from "@/components/home";
+import CustomizeFeed from "@/components/home/CustomizeFeed";
 
 const tabCustomClass = {
   tabList: "bg-transparent gap-2.5",
@@ -15,19 +15,17 @@ const tabCustomClass = {
 
 export default function Home() {
   return (
-    <section className="flex flex-col py-3 px-2 overflow-y-auto">
+    <section className="flex flex-col py-3 px-2 overflow-y-auto relative">
+      <CustomizeFeed className="absolute top-3 py-2 right-3" />
       <Tabs aria-label="View Options" classNames={tabCustomClass}>
         <Tab key="all" title="All">
-          <AllTabLayout />
+          <Layout />
         </Tab>
         <Tab key="music" title="Music">
-          <MusicTabLayout />
+          <Layout title="music" />
         </Tab>
         <Tab key="podcast" title="Podcast">
-          <PodcastTabLayout />
-        </Tab>
-        <Tab key="audiobooks" title="AudioBooks">
-          Audiobooks
+          <Layout title="podcast" />
         </Tab>
       </Tabs>
     </section>

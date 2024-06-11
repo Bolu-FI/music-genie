@@ -7,6 +7,8 @@ import { Skeleton } from "@nextui-org/skeleton";
 import { useGetAllFollowedArtists } from "@/hooks/useProfile";
 import ItemRow from "@/components/shared/ItemRow";
 import { DefaultProps } from "@/types";
+import { RowMenu } from "@/components/shared";
+import { RowItem } from "@/components/home/RowItem";
 
 type Prop = DefaultProps;
 
@@ -39,6 +41,7 @@ const FollowedArtists: React.FC<Prop> = ({ className }) => {
 
   return (
     <ItemRow
+      actionBtn={<RowMenu layoutId="fa" />}
       classNames={{
         base: className,
       }}
@@ -50,20 +53,22 @@ const FollowedArtists: React.FC<Prop> = ({ className }) => {
       title="Your favorite artists"
     >
       {(item) => (
-        <div
-          className="flex flex-col gap-1 transition-background hover:bg-primary-background p-3 rounded-lg cursor-pointer snap-start"
-          role="button"
-        >
-          <Image
-            className="min-w-[170px] min-h-[170px] max-w-[170px] max-h-[170px]"
-            height={200}
-            radius="full"
-            src={item.images[0]?.url}
-            width={200}
-          />
-          <p>{item.name}</p>
-          <p className="text-foreground text-xs">Artist</p>
-        </div>
+        <RowItem
+          showSubtitle
+          description="Artist"
+          id={item.id}
+          imageSlot={
+            <Image
+              className="min-w-[170px] min-h-[170px] max-w-[170px] max-h-[170px]"
+              height={200}
+              radius="full"
+              src={item.images[0]?.url}
+              width={200}
+            />
+          }
+          titleSlot={<>{item.name}</>}
+          onPlayClicked={() => {}}
+        />
       )}
     </ItemRow>
   );

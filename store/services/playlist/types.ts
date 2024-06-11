@@ -1,4 +1,4 @@
-import { OffsetPagination, Playlist } from "@/types";
+import { OffsetPagination, Playlist, Track, UserProfile } from "@/types";
 
 export type FetchPlaylistsPayload = {
   limit: number;
@@ -14,4 +14,18 @@ export type FetchPlaylistsResponse = {
   playlists: OffsetPagination & {
     items: Array<Playlist>;
   };
+};
+
+export type FetchPlaylistItemsPayload = {
+  limit: number;
+  offset: number;
+  playlist_id: string;
+};
+
+export type FetchPlaylistItemsResponse = OffsetPagination & {
+  items: Array<{
+    added_at: string;
+    added_by: UserProfile;
+    track: Track;
+  }>;
 };

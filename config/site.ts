@@ -1,9 +1,7 @@
 import {
   ArtistIcon,
   BellIcon,
-  BookIcon,
   FavouriteIcon,
-  FolderIcon,
   GearIcon,
   HomeIcon,
   LibraryIcon,
@@ -96,19 +94,9 @@ export const siteConfig = {
       icon: MusicIcon,
     },
     {
-      label: "Folders",
-      href: "",
-      icon: FolderIcon,
-    },
-    {
       label: "Podcasts",
       href: "",
       icon: MicrophoneIcon,
-    },
-    {
-      label: "Audiobooks",
-      href: "",
-      icon: BookIcon,
     },
     {
       label: "Artists",

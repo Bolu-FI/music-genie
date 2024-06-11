@@ -1,11 +1,7 @@
 import React, { Fragment, ReactElement, useRef, useState } from "react";
 import clsx from "clsx";
 
-import {
-  LeftArrowIcon,
-  RightArrowIcon,
-  ThreeDotsIcon,
-} from "@/components/icons";
+import { LeftArrowIcon, RightArrowIcon } from "@/components/icons";
 
 type Prop<T> = {
   title: string;
@@ -22,6 +18,7 @@ type Prop<T> = {
   hasMore?: boolean;
   loader?: ReactElement;
   offset?: number;
+  actionBtn?: ReactElement;
 };
 
 const ItemRow = <T,>({
@@ -35,6 +32,7 @@ const ItemRow = <T,>({
   fetchMore,
   loader,
   offset = 100,
+  actionBtn,
 }: Prop<T>) => {
   const ref = useRef<HTMLUListElement | null>(null);
 
@@ -96,11 +94,9 @@ const ItemRow = <T,>({
                 }
               />
             </button>
-            <button className="mx-3">
-              <ThreeDotsIcon className="text-foreground" size={24} />
-            </button>
           </>
         ) : null}
+        {actionBtn}
       </div>
       <ul
         ref={ref}

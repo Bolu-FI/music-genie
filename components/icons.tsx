@@ -58,16 +58,36 @@ export const PinIcon: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     height={size || height}
-    viewBox="0 0 41 40"
+    viewBox="0 0 35 35"
     width={size || width}
     {...props}
   >
     <path
-      d="M23.9859 11.0898L22.4681 9.57199M23.9859 11.0898L17.2855 17.7902C17.1624 17.9133 17.0016 17.9916 16.8288 18.0126L14.0755 18.3473C13.4309 18.4257 13.1596 19.2121 13.6187 19.6712L17.5473 23.5998M23.9859 11.0898L30.0572 17.1612M31.5751 18.679L30.0572 17.1612M30.0572 17.1612L23.3568 23.8616C23.2337 23.9847 23.1554 24.1455 23.1344 24.3183L22.7997 27.0716C22.7214 27.7162 21.935 27.9875 21.4758 27.5283L17.5473 23.5998M17.5473 23.5998L12.3795 28.7676"
+      d="M20.7741 9.60523L19.4595 8.29062M20.7741 9.60523L14.9709 15.4085C14.8643 15.5151 14.725 15.5829 14.5753 15.6011L12.1907 15.891C11.6324 15.9589 11.3974 16.6399 11.7951 17.0376L15.1976 20.4402M20.7741 9.60523L26.0326 14.8636M27.3472 16.1782L26.0326 14.8636M26.0326 14.8636L20.2293 20.6669C20.1227 20.7735 20.0549 20.9128 20.0367 21.0625L19.7468 23.4471C19.6789 24.0054 18.9978 24.2404 18.6002 23.8427L15.1976 20.4402M15.1976 20.4402L10.7218 24.916"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="2"
+      strokeWidth="1.73221"
+    />
+  </svg>
+);
+
+export const HideIcon: React.FC<IconSvgProps> = ({
+  size = 40.41,
+  width,
+  height,
+  ...props
+}) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 35 35"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M12.0344 11.6277C13.4674 10.2927 15.3881 9.47721 17.5 9.47721C21.9298 9.47721 25.5208 13.0683 25.5208 17.498C25.5208 19.2695 24.9473 20.9057 23.975 22.2328L12.0344 11.6277ZM11.0614 12.714L23.0103 23.3265C21.5727 24.6863 19.6339 25.5189 17.5 25.5189C13.0702 25.5189 9.47917 21.9278 9.47917 17.498C9.47917 15.7046 10.0671 14.0498 11.0614 12.714Z"
+      stroke="currentColor"
+      strokeWidth="1.45833"
     />
   </svg>
 );
@@ -1059,6 +1079,7 @@ export const ChevronRightIcon = ({
     />
   </svg>
 );
+
 export const CloseIcon = ({
   size = 40.41,
   height,
@@ -1080,6 +1101,152 @@ export const CloseIcon = ({
     />
   </svg>
 );
+
+export const EyeOpenIcon = ({
+  size = 40.41,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 26 26"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M12.8911 5.22238C17.277 5.25237 20.8569 8.37154 22.9342 10.7215C24.2427 12.2019 24.2208 14.3598 22.8597 15.792C20.7981 17.9614 17.3065 20.7495 12.9971 20.72C8.6659 20.6904 5.12205 17.8258 3.03466 15.6236C1.67634 14.1905 1.64041 12.0348 2.94815 10.5554C4.9974 8.23713 8.52359 5.19251 12.8911 5.22238Z"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <circle cx="12.969" cy="12.9357" fill="currentColor" r="4.25215" />
+  </svg>
+);
+
+export const EyeClosedIcon = ({
+  size = 40.41,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 30 30"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M14.9925 19.6455C13.029 19.6321 11.2334 19.0137 9.67316 18.1417M14.9925 19.6455V22.7272M14.9925 19.6455C17.0114 19.6593 18.8439 19.0311 20.4222 18.1417M26.457 12.4872C26.457 12.4872 25.8117 13.4806 24.6531 14.7272M3.429 12.3298C3.429 12.3298 4.13449 13.4029 5.38817 14.7272M5.38817 14.7272L2.67316 17.4422M5.38817 14.7272C6.45309 15.8521 7.91355 17.1582 9.67316 18.1417M9.67316 18.1417L7.67316 21.2272M20.4222 18.1417L22.1732 21.2272M20.4222 18.1417C22.1784 17.152 23.6199 15.8389 24.6531 14.7272M24.6531 14.7272L27.1732 17.2473"
+      stroke="#898989"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+  </svg>
+);
+
+export const MoveIcon = ({
+  size = 40.41,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 12 20"
+    width={size || width}
+    {...props}
+  >
+    <circle
+      cx="1.9"
+      cy="1.9"
+      fill="currentColor"
+      r="1.9"
+      transform="matrix(1 0 0 -1 0.00585938 19.5781)"
+    />
+    <circle
+      cx="1.9"
+      cy="1.9"
+      fill="currentColor"
+      r="1.9"
+      transform="matrix(1 0 0 -1 7.60547 19.5781)"
+    />
+    <circle
+      cx="1.9"
+      cy="1.9"
+      fill="currentColor"
+      r="1.9"
+      transform="matrix(1 0 0 -1 0.00585938 11.9785)"
+    />
+    <circle
+      cx="1.9"
+      cy="1.9"
+      fill="currentColor"
+      r="1.9"
+      transform="matrix(1 0 0 -1 0.00585938 4.37891)"
+    />
+    <circle
+      cx="1.9"
+      cy="1.9"
+      fill="currentColor"
+      r="1.9"
+      transform="matrix(1 0 0 -1 7.60547 11.9785)"
+    />
+    <circle
+      cx="1.9"
+      cy="1.9"
+      fill="currentColor"
+      r="1.9"
+      transform="matrix(1 0 0 -1 7.60547 4.37891)"
+    />
+  </svg>
+);
+
+export const AdjustIcon = ({
+  size = 40.41,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 22 19"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M10.416 2.38098H3.41602C2.31145 2.38098 1.41602 3.27641 1.41602 4.38098V4.38098C1.41602 5.48555 2.31145 6.38098 3.41602 6.38098H10.416"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+    <rect
+      height="6.23077"
+      rx="3.11538"
+      stroke="currentColor"
+      strokeWidth="2"
+      width="6.23077"
+      x="14.1852"
+      y="1.38098"
+    />
+    <path
+      d="M11.416 16.6119L18.416 16.6119C19.5206 16.6119 20.416 15.7165 20.416 14.6119V14.6119C20.416 13.5074 19.5206 12.6119 18.416 12.6119L11.416 12.6119"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+    <rect
+      height="6.23077"
+      rx="3.11538"
+      stroke="currentColor"
+      strokeWidth="2"
+      transform="rotate(-180 7.64679 17.6119)"
+      width="6.23077"
+      x="7.64679"
+      y="17.6119"
+    />
+  </svg>
+);
+
 export const UserAddIcon = ({
   size = 40.41,
   height,
