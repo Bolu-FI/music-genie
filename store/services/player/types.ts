@@ -15,6 +15,7 @@ export type FetchRecentlyPlayedResponse = Pagination & {
 
 export type StartPlaybackPayload = {
   context_uri?: string;
+  uris?: string[];
   offset?: {
     position: number;
   };
@@ -31,7 +32,7 @@ export type AddToPlaybackPayload = {
 } & PlaybackPayload;
 
 export type ShufflePlaybackPayload = {
-  state: boolean;
+  state: string;
 } & PlaybackPayload;
 
 export type RepeatPlaybackPayload = {
@@ -43,7 +44,7 @@ export type PlaybackVolumePayload = {
 } & PlaybackPayload;
 
 export type SeekAudioPayload = {
-  position_ms: number;
+  position_ms: number | string;
 } & PlaybackPayload;
 
 export type PlaybackPayload = {

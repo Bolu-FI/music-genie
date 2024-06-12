@@ -18,13 +18,14 @@ export class UserService {
 
   public static async reAuthenticate() {
     const refreshToken = getCookie(USER_REFRESH_TOKEN_KEY) || "";
+    const accessToken = getCookie(USER_TOKEN_KEY) || "";
 
-    if (!refreshToken) {
+    if (!refreshToken && !accessToken) {
       return false;
     }
 
     try {
-      const response = await refreshAccessToken(refreshToken);
+      const response = await refreshAccessToken(refreshToken, accessToken);
 
       if (!response.access_token) {
         return false;

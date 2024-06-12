@@ -727,6 +727,39 @@ export const RepeatIcon = ({
   </svg>
 );
 
+export const RepeatOneIcon = ({
+  size = 40.41,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 41 40"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M15.309 24.7363H12.933C11.1833 24.7363 9.76489 23.3179 9.76489 21.5682V15.2321C9.76489 13.4824 11.1833 12.064 12.933 12.064H25.6053C27.355 12.064 28.7734 13.4824 28.7734 15.2321V21.5682C28.7734 23.3179 27.355 24.7363 25.6053 24.7363H19.2692M19.2692 24.7363L22.4372 21.5682M19.2692 24.7363L22.4372 27.9044"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.90085"
+    />
+    <text
+      x="18"
+      y="20"
+      fontSize="10"
+      fontFamily="Arial, sans-serif"
+      fill="currentColor"
+      textAnchor="middle"
+      alignmentBaseline="middle"
+    >
+      1
+    </text>
+  </svg>
+);
+
 export const ShuffleIcon = ({
   size = 40.41,
   height,

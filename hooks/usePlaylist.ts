@@ -124,18 +124,18 @@ export const useGetFriendMixes = () => {
 };
 
 export const useGetPlaylistItems = ({
-                                      enabled = true,
-                                      ...payload
-                                    }: FetchPlaylistItemsPayload & { enabled?: boolean }) => {
+  enabled = true,
+  ...payload
+}: FetchPlaylistItemsPayload & { enabled?: boolean }) => {
   const {
     data,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
     isFetching,
-    refetc,
+    refetch,
   } = useInfiniteQuery<FetchPlaylistItemsResponse>({
-    queryKey: ["playlist-items", ...Object.keys(payload)],
+    queryKey: ["playlist-items", ...Object.keys(paylod)],
     queryFn: ({ pageParam }: any) =>
       PlaylistService.getPlaylistItems({ ...payload, offset: pageParam }),
     initialPageParam: 0,
@@ -143,19 +143,19 @@ export const useGetPlaylistItems = ({
       (allPages.length + 1) * payload.limit < lastPage.total
         ? payload.limit * allPages.length
         : undefined,
-    enabled: enable,
+    enabled: enabled,
   });
 
   return {
     tracks:
       data?.pages.reduce(
         (prev, next) => [...prev, ...next.items.map((item) => item.track)],
-        [] as unknown as Array<FetchPlaylistItemsResponse["items"][0]["track"],
+        [] as Array<FetchPlaylistItemsResponse["items"][0]["track"],
       ) || [],
     hasNextPage,
     fetchNextPage,
     fetchTracks: refetch,
     isFetching,
-    isFetchingNextPag,
+    isFetchingNextPage
   };
 };

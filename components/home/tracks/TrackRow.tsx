@@ -1,10 +1,13 @@
 import React, { ComponentProps } from "react";
 import { Image } from "@nextui-org/image";
 import { Skeleton } from "@nextui-org/skeleton";
+import { useStore } from "@tanstack/react-store";
 
 import { DefaultProps, Track } from "@/types";
 import { ItemRow, RowMenu } from "@/components/shared";
 import { RowItem } from "@/components/home/RowItem";
+import { store } from "@/store";
+import usePlayback from "@/hooks/usePlayback";
 
 type Prop = DefaultProps &
   Pick<ComponentProps<typeof ItemRow>, "hasMore" | "fetchMore" | "title"> & {
@@ -36,6 +39,16 @@ const TrackRow: React.FC<Prop> = ({
   tracks,
   id,
 }) => {
+  const { deviceId } = useStore(store);
+
+  const { play } = usePlayback();
+
+  const handleOnPlay = async (track: Track) => {
+    if (deviceId) {
+      play({ uris: [track.uri], device_id: deviceId });
+    }
+  };
+
   if (isLoading) {
     return (
       <ItemRow
@@ -79,7 +92,7 @@ const TrackRow: React.FC<Prop> = ({
             />
           }
           titleSlot={<>{track.name}</>}
-          onPlayClicked={() => {}}
+          onPlayClicked={() => handleOnPlay(track)}
         />
       )}
     </ItemRow>

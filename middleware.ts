@@ -48,11 +48,12 @@ const redirectToAuth = async () => {
 };
 
 function saveToken(redirect: NextResponse, response: AuthResp) {
+  console.log(response);
   redirect.cookies.set(USER_TOKEN_KEY, response.access_token);
   redirect.cookies.set(USER_REFRESH_TOKEN_KEY, response.refresh_token);
   redirect.cookies.set(
     USER_TOKEN_EXPIRATION_DATE_KEY,
-    (Date.now() + response.expires_in).toString(),
+    (Date.now() + response.expires_in * 1000).toString(),
   );
 }
 
@@ -74,11 +75,15 @@ const getTokenFromServer = async (code: string, codeVerifier: string) => {
   }).then((res) => res.json() as Promise<AuthResp>);
 };
 
-export const refreshAccessToken = async (refreshToken: string) => {
+export const refreshAccessToken = async (
+  refreshToken: string,
+  accessToken: strin,
+) => {
   const params = new URLSearchParams({
     grant_type: "refresh_token",
     refresh_token: refreshToken,
-    client_id: process.env.NEXT_PUBLIC_CLIENT_ID || "",
+    access_token: accessToken,
+    client_id: process.env.CLIENT_ID || "",
   });
 
   return await fetch(process.env.TOKEN_URL || "", {
@@ -119,9 +124,10 @@ const reAuthenticate = async (request: NextRequest) => {
   const cookies = request.cookies;
 
   const refreshToken = cookies.get(USER_REFRESH_TOKEN_KEY)?.value || "";
+  const accessToken = cookies.get(USER_TOKEN_KEY)?.value || "";
 
   try {
-    const response = await refreshAccessToken(refreshToken);
+    const response = await refreshAccessToken(refreshToken, accessToken);
 
     const redirect = NextResponse.redirect(
       new URL(url, request.nextUrl.origin),
@@ -145,15 +151,20 @@ const isAuthenticated = async (request: NextRequest) => {
     cookies.get(USER_TOKEN_EXPIRATION_DATE_KEY)?.value || "0"
   );
 
+  console.log(`Token: ${token}`, `Refresh: ${refreshToken}`);
+
   if (code) {
+    console.log("I am checking for code");
     return checkForCode(request);
   }
 
   if (!token && !refreshToken) {
+    console.log("I am redirecting to auth");
     return redirectToAuth();
   }
 
   if ((!token || Date.now() > expiresAt) && refreshToken) {
+    console.log("I am re-authenticating");
     return reAuthenticate(request);
   }
 

@@ -75,6 +75,7 @@ export type Playlist = {
   href: string;
   id: string;
   name: string;
+  uri: string;
   owner: UserProfile;
   public: boolean;
   images: ItemImage[];
@@ -186,8 +187,10 @@ export type Queue = {
   items: Track[];
 };
 
-export type PlayingState = {
+export type PlayerState = {
   isPlaying: boolean;
-  repeat: boolean;
+  repeat: string;
   shuffle: boolean;
+  loading: boolean;
+  volume: number;
 };

@@ -83,10 +83,11 @@ export class Api {
       body?: Record<string, any>;
     },
   ) {
+    // console.log(endpoint);
     const url = new URL(endpoint);
 
     url.search = new URLSearchParams(
-      pickBy(config?.query, (value) => !!value),
+      pickBy(config?.query, (value) => value),
     ).toString();
 
     let response = await fetch(url, {
@@ -118,6 +119,14 @@ export class Api {
       throw data.message;
     }
 
-    return (await response.json()) as unknown as T;
+    try {
+      const contentType = response.headers.get("content-type");
+
+      if (contentType && contentType.includes("application/json")) {
+        return (await response.json()) as unknown as T;
+      }
+    } catch (e) {}
+
+    return true;
   }
 }

@@ -1,6 +1,7 @@
 import React, { ComponentProps } from "react";
 import { Image } from "@nextui-org/image";
 import { Skeleton } from "@nextui-org/skeleton";
+import { useStore } from "@tanstack/react-store";
 
 import { DefaultProps, Playlist } from "@/types";
 import ItemRow from "@/components/shared/ItemRow";
@@ -8,6 +9,8 @@ import ImageWithBlurBg from "@/components/shared/ImageWithBlurBg";
 import { RowMenu } from "@/components/shared";
 import { useImage } from "@/hooks";
 import { RowItem } from "@/components/home/RowItem";
+import usePlayback from "@/hooks/usePlayback";
+import { store } from "@/store";
 
 type Prop = DefaultProps & {
   playlists: Playlist[];
@@ -36,8 +39,15 @@ const Item = ({
   showSubtitle: boolean;
 }) => {
   const { color } = useImage(playlist.images[0].url);
+  const { deviceId } = useStore(store);
 
-  const handleOnPlay = async () => {};
+  const { play } = usePlayback();
+
+  const handleOnPlay = async () => {
+    if (deviceId) {
+      play({ context_uri: playlist.uri, device_id: deviceId });
+    }
+  };
 
   return (
     <RowItem

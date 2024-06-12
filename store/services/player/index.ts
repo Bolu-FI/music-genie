@@ -10,7 +10,7 @@ import {
   RepeatPlaybackPayload,
   SeekAudioPayload,
   ShufflePlaybackPayload,
-  StartPlaybackPayload,
+  StartPlaybackPayload
 } from "@/store/services/player/types";
 
 export class PlayerService {
@@ -36,6 +36,7 @@ export class PlayerService {
     return await Api.put(`${this.PLAYER_API_BASE}/play`, {
       body: payload,
       query: { device_id },
+      headers: { Accept: "*" },
     });
   }
 
@@ -44,6 +45,7 @@ export class PlayerService {
       `${this.PLAYER_API_BASE}/queue`,
       {
         query: payload,
+        headers: { Accept: "*" ,
       },
     );
   }
@@ -51,42 +53,49 @@ export class PlayerService {
   public static async pausePlayback({ device_id }: PlaybackPayload) {
     return await Api.put(`${this.PLAYER_API_BASE}/pause`, {
       query: { device_id },
+      headers: { Accept: "*" }
     });
   }
 
   public static async skipToNext({ device_id }: PlaybackPayload) {
     return await Api.post(`${this.PLAYER_API_BASE}/next`, {
       query: { device_id },
+      headers: { Accept: "*" }
     });
   }
 
   public static async skipToPrevious({ device_id }: PlaybackPayload) {
     return await Api.post(`${this.PLAYER_API_BASE}/previous`, {
       query: { device_id },
+      headers: { Accept: "*" }
     });
   }
 
   public static async seekToPosition(payload: SeekAudioPayload) {
     return await Api.put(`${this.PLAYER_API_BASE}/seek`, {
       query: payload,
+      headers: { Accept: "*" }
     });
   }
 
   public static async setRepeatMode(payload: RepeatPlaybackPayload) {
     return await Api.put(`${this.PLAYER_API_BASE}/repeat`, {
       query: payload,
+      headers: { Accept: "*" }
     });
   }
 
   public static async changeVolume(payload: PlaybackVolumePayload) {
     return await Api.put(`${this.PLAYER_API_BASE}/volume`, {
       query: payload,
+      headers: { Accept: "*" }
     });
   }
 
   public static async toggleShuffle(payload: ShufflePlaybackPayload) {
     return await Api.put(`${this.PLAYER_API_BASE}/shuffle`, {
       query: payload,
+      headers: { Accept: "*" }
     });
   }
 }

@@ -1,6 +1,6 @@
 import { Store } from "@tanstack/react-store";
 
-import { Layout, Queue } from "@/types";
+import { Layout, PlayerState, Queue } from "@/types";
 import { isBrowser, loadFromStorage, saveToStorage } from "@/helpers";
 import { STORE_KEY } from "@/constants";
 import {
@@ -60,11 +60,21 @@ const initialState: {
   layouts: Layout[];
   priority?: Queue;
   playback?: Queue;
+  deviceId?: string;
+  playerState: PlayerState;
 } = {
   priority: undefined,
   playback: undefined,
+  deviceId: undefined,
   ...persistedState,
   layouts: defaultLayouts,
+  playerState: {
+    repeat: "off",
+    isPlaying: false,
+    loading: false,
+    shuffle: false,
+    volume: 0.8,
+  },
 };
 
 export const store = new Store<typeof initialState>(initialState);

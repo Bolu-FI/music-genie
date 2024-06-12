@@ -36,7 +36,7 @@ export function getAverageRGB(src: string) {
       } catch (e) {
         /* security error, img on diff domain */
         return resolve(
-          `rgb(${defaultRGB.r}, ${defaultRGB.g}, ${defaultRGB.b}),
+          `rgb(${defaultRGB.r}, ${defaultRGB.g}, ${defaultRGB.b})`,
         );
       }
 
@@ -78,8 +78,14 @@ export function saveToStorage(key: string, state: any) {
     const serializedState = JSON.stringify(state);
 
     localStorage.setItem(key, serializedState);
-  } catch (err) {
-  }
+  } catch (err) {}
 }
 
 export const isBrowser = typeof window !== "undefined";
+
+export const formatMsTime = (msTime: number) => {
+  const minutes = Math.floor(msTime / 60000);
+  const seconds = Math.floor((msTime % 60000) / 1000);
+
+  return `${minutes}:${+seconds < 10 ? "0" : ""}${seconds}`;
+};

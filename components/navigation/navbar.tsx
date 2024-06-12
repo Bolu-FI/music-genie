@@ -1,10 +1,10 @@
 import { Navbar as NextUINavbar } from "@nextui-org/navbar";
+import clsx from "clsx";
 
 import Menu from "./Menu";
 
 import { UserAvatar } from "@/rsc";
 import { DefaultProps } from "@/types";
-import clsx from "clsx";
 
 const classNames = {
   wrapper: "px-0",
