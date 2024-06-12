@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import {
   FetchPlaylistItemsPayload,
   FetchPlaylistItemsResponse,
-  FetchPlaylistsResponse
+  FetchPlaylistsResponse,
 } from "@/store/services/playlist/types";
 import { PlaylistService } from "@/store/services/playlist";
 import { Playlist } from "@/types";
@@ -135,7 +135,7 @@ export const useGetPlaylistItems = ({
     isFetching,
     refetch,
   } = useInfiniteQuery<FetchPlaylistItemsResponse>({
-    queryKey: ["playlist-items", ...Object.keys(paylod)],
+    queryKey: ["playlist-items", ...Object.keys(payload)],
     queryFn: ({ pageParam }: any) =>
       PlaylistService.getPlaylistItems({ ...payload, offset: pageParam }),
     initialPageParam: 0,
@@ -150,12 +150,12 @@ export const useGetPlaylistItems = ({
     tracks:
       data?.pages.reduce(
         (prev, next) => [...prev, ...next.items.map((item) => item.track)],
-        [] as Array<FetchPlaylistItemsResponse["items"][0]["track"],
+        [] as Array<FetchPlaylistItemsResponse["items"][0]["track"]>,
       ) || [],
     hasNextPage,
     fetchNextPage,
     fetchTracks: refetch,
     isFetching,
-    isFetchingNextPage
+    isFetchingNextPage,
   };
 };

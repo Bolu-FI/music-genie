@@ -5,7 +5,7 @@ import {
   PlaybackPayload,
   PlaybackVolumePayload,
   SeekAudioPayload,
-  StartPlaybackPayload
+  StartPlaybackPayload,
 } from "@/store/services/player/types";
 import { store } from "@/store";
 
@@ -19,10 +19,10 @@ const usePlayback = () => {
         ...state,
         playerState: {
           ...state.playerState,
-          isPlaying: tru,
-        ,
+          isPlaying: true,
+        },
       }));
-    ,
+    },
   });
 
   const { mutate: pause } = useMutation({
@@ -34,35 +34,35 @@ const usePlayback = () => {
         ...state,
         playerState: {
           ...state.playerState,
-          isPlaying: false
-        }
+          isPlaying: false,
+        },
       }));
-    }
+    },
   });
 
   const { mutate: previous } = useMutation({
     mutationFn: (variables: PlaybackPayload) =>
       PlayerService.skipToPrevious(variables),
-    mutationKey: ["previous"]
+    mutationKey: ["previous"],
   });
 
   const { mutate: next } = useMutation({
     mutationFn: (variables: PlaybackPayload) =>
       PlayerService.skipToNext(variables),
-    mutationKey: ["next"]
+    mutationKey: ["next"],
   });
 
   const { mutate: seek } = useMutation({
     mutationFn: (variables: SeekAudioPayload) =>
       PlayerService.seekToPosition(variables),
-    mutationKey: ["seek"]
+    mutationKey: ["seek"],
   });
 
   const { mutate: toggleShuffle } = useMutation({
     mutationFn: (variables: PlaybackPayload) =>
       PlayerService.toggleShuffle({
         ...variables,
-        state: store.state.playerState.shuffle ? "false" : "true"
+        state: store.state.playerState.shuffle ? "false" : "true",
       }),
     mutationKey: ["toggleShuffle"],
     onSuccess: () => {
@@ -70,10 +70,10 @@ const usePlayback = () => {
         ...state,
         playerState: {
           ...state.playerState,
-          shuffle: !state.playerState.shuffle
-        }
+          shuffle: !state.playerState.shuffle,
+        },
       }));
-    }
+    },
   });
 
   const { mutate: toggleRepeat } = useMutation({
@@ -85,7 +85,7 @@ const usePlayback = () => {
             ? "context"
             : store.state.playerState.repeat === "context"
               ? "track"
-              : "off"
+              : "off",
       }),
     mutationKey: ["toggleRepeat"],
     onSuccess: () => {
@@ -98,10 +98,10 @@ const usePlayback = () => {
               ? "context"
               : store.state.playerState.repeat === "context"
                 ? "track"
-                : "off"
-        }
+                : "off",
+        },
       }));
-    }
+    },
   });
 
   const { mutate: changeVolume } = useMutation({
@@ -113,10 +113,10 @@ const usePlayback = () => {
         ...state,
         playerState: {
           ...state.playerState,
-          volume: variables.volume_percent / 100
-        }
+          volume: variables.volume_percent / 100,
+        },
       }));
-    }
+    },
   });
 
   return {
@@ -127,7 +127,7 @@ const usePlayback = () => {
     seek,
     toggleShuffle,
     toggleRepeat,
-    changeVolume
+    changeVolume,
   };
 };
 
