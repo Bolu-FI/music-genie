@@ -77,7 +77,7 @@ const getTokenFromServer = async (code: string, codeVerifier: string) => {
 
 export const refreshAccessToken = async (
   refreshToken: string,
-  accessToken: strin,
+  accessToken: string,
 ) => {
   const params = new URLSearchParams({
     grant_type: "refresh_token",
