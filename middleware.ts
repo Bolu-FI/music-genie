@@ -155,16 +155,19 @@ const isAuthenticated = async (request: NextRequest) => {
 
   if (code) {
     console.log("I am checking for code");
+
     return checkForCode(request);
   }
 
   if (!token && !refreshToken) {
     console.log("I am redirecting to auth");
+
     return redirectToAuth();
   }
 
   if ((!token || Date.now() > expiresAt) && refreshToken) {
     console.log("I am re-authenticating");
+
     return reAuthenticate(request);
   }
 

@@ -50,7 +50,7 @@ const ItemRow = <T,>({
     if (hasReachedEnd && hasMore && !isLoading) {
       setIsLoading(true);
       fetchMore?.()
-        .then(console.log)
+        .then()
         .finally(() => setIsLoading(false));
     }
   };

@@ -144,7 +144,7 @@ const Player: React.FC<Prop> = ({ className }) => {
         className,
         {
           "bg-secondary": !playerState.isPlaying,
-          "bg-player": playerState.isPlaying,
+          "bg-player-play": playerState.isPlaying,
         },
       )}
     >
@@ -218,7 +218,7 @@ const Playback = ({
   loading,
   seek,
   changeVolume,
-  volum,
+  volume,
 }: {
   duration: number;
   position: number;

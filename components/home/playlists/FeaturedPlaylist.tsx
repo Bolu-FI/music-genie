@@ -16,10 +16,10 @@ const FeaturedPlaylist: React.FC<Prop> = ({ className }) => {
       className={className}
       fetchMore={fetchNextPage}
       hasMore={hasNextPage}
+      id="fp"
       isLoading={isLoading}
       playlists={playlists}
       title="Featured Playlist"
-      id="fp"
     />
   );
 };

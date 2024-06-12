@@ -747,13 +747,13 @@ export const RepeatOneIcon = ({
       strokeWidth="1.90085"
     />
     <text
+      alignmentBaseline="middle"
+      fill="currentColor"
+      fontFamily="Arial, sans-serif"
+      fontSize="10"
+      textAnchor="middle"
       x="18"
       y="20"
-      fontSize="10"
-      fontFamily="Arial, sans-serif"
-      fill="currentColor"
-      textAnchor="middle"
-      alignmentBaseline="middle"
     >
       1
     </text>

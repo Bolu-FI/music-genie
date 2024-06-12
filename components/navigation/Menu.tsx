@@ -5,9 +5,9 @@ import { NavbarContent, NavbarItem } from "@nextui-org/navbar";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import { Input } from "@nextui-org/input";
 
 import { siteConfig } from "@/config/site";
-import { Input } from "@nextui-org/input";
 import { SearchIcon } from "@/components/icons";
 
 type Prop = {};

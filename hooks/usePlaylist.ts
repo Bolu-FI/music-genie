@@ -82,7 +82,6 @@ const useGetGeneratedPlaylists = () => {
 
   const fetchAll = async () => {
     if (hasNextPage) {
-      console.log(hasNextPage);
       await fetchNextPage();
     }
   };
