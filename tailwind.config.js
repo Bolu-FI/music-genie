@@ -45,6 +45,9 @@ module.exports = {
               DEFAULT: "#333842",
               play: "#1ED760",
             },
+            lyric: {
+              DEFAULT: "#DBDBDB",
+            },
           },
         },
       },

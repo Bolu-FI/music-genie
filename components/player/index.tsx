@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Slider } from "@nextui-org/slider";
 import { Image } from "@nextui-org/image";
 import NextImage from "next/image";
@@ -15,7 +15,6 @@ import {
   BoxAddIcon,
   FavouriteIcon,
   ListIcon,
-  LyricIcon,
   NextIcon,
   PauseIcon,
   PlayIcon,
@@ -24,13 +23,14 @@ import {
   RepeatOneIcon,
   ShuffleIcon,
   SpeakerIcon,
-  ThreeDotsIcon,
 } from "@/components/icons";
 import { DefaultProps, Track } from "@/types";
 import { store } from "@/store";
 import { USER_TOKEN_KEY } from "@/constants";
 import usePlayback from "@/hooks/usePlayback";
 import { formatMsTime } from "@/helpers";
+import LyricButton from "@/components/player/LyricButton";
+import MoreOptions from "@/components/player/MoreOptions";
 
 type Prop = DefaultProps & {};
 
@@ -41,6 +41,8 @@ const Player: React.FC<Prop> = ({ className }) => {
     loading: boolean;
     track_window: { current_track: Track };
   }>();
+
+  const [position, setPosition] = useState<number>(0);
 
   const { deviceId, playerState } = useStore(store, (state) => ({
     deviceId: state.deviceId,
@@ -84,9 +86,13 @@ const Player: React.FC<Prop> = ({ className }) => {
         }));
       });
 
-      // player.addListener("not_ready", ({ device_id }: any) => {});
+      player.addListener("progress", ({ position }: any) => {
+        setPosition(position);
+      });
       //
-      // player.addListener("initialization_error", ({ message }: any) => {});
+      player.addListener("playback_error", (state) => {
+        console.log(state);
+      });
       //
       // player.addListener("authentication_error", ({ message }: any) => {});
       //
@@ -144,7 +150,7 @@ const Player: React.FC<Prop> = ({ className }) => {
         className,
         {
           "bg-secondary": !playerState.isPlaying,
-          "bg-player-play": playerState.isPlaying,
+          "bg-player": playerState.isPlaying,
         },
       )}
     >
@@ -196,7 +202,7 @@ const Player: React.FC<Prop> = ({ className }) => {
         duration={playContext.duration}
         loading={playContext.loading}
         paused={!playerState.isPlaying}
-        position={playContext.position}
+        position={position}
         seek={handleSeek}
         volume={playerState.volume}
       />
@@ -229,37 +235,13 @@ const Playback = ({
   changeVolume: (volume: number) => void;
 }) => {
   const [currentPosition, setCurrentPosition] = useState<number>(0);
-  const timerRef = useRef<any>();
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
-    clearTimeout(timerRef.current);
-    setCurrentPosition(position);
-  }, [position]);
-
-  useEffect(() => {
-    if (loading) {
-      return;
+    if (!isDragging) {
+      setCurrentPosition(position);
     }
-
-    if (currentPosition >= duration) {
-      return;
-    }
-
-    clearTimeout(timerRef.current);
-
-    if (paused) {
-      return;
-    }
-
-    timerRef.current = setTimeout(
-      () => setCurrentPosition((position) => position + 100),
-      10,
-    );
-
-    return () => {
-      clearTimeout(timerRef.current);
-    };
-  }, [currentPosition, loading, paused]);
+  }, [isDragging, position]);
 
   return (
     <div className="flex w-full max-w-[300px] text-small items-center gap-1.5">
@@ -285,10 +267,13 @@ const Playback = ({
         }
         value={currentPosition}
         onChange={(value) => {
-          clearTimeout(timerRef.current);
+          setIsDragging(true);
           setCurrentPosition(value as number);
         }}
-        onChangeEnd={(value) => seek(value as number)}
+        onChangeEnd={(value) => {
+          setIsDragging(false);
+          seek(value as number);
+        }}
       />
       <Popover placement="top">
         <PopoverTrigger>
@@ -358,14 +343,12 @@ const PlayerOptions = ({ className }: { className?: string }) => {
         <BoxAddIcon fill="none" />
       </button>
       <button aria-label="lyric">
-        <LyricIcon fill="none" />
+        <LyricButton />
       </button>
       <button aria-label="audio output">
         <AudioOutputIcon fill="none" />
       </button>
-      <button aria-label="more">
-        <ThreeDotsIcon />
-      </button>
+      <MoreOptions />
       <Divider
         className="mx-3.5 w-0.5 h-auto bg-foreground self-stretch rounded-full"
         orientation="vertical"

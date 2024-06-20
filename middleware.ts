@@ -48,7 +48,6 @@ const redirectToAuth = async () => {
 };
 
 function saveToken(redirect: NextResponse, response: AuthResp) {
-  console.log(response);
   redirect.cookies.set(USER_TOKEN_KEY, response.access_token);
   redirect.cookies.set(USER_REFRESH_TOKEN_KEY, response.refresh_token);
   redirect.cookies.set(
@@ -151,23 +150,15 @@ const isAuthenticated = async (request: NextRequest) => {
     cookies.get(USER_TOKEN_EXPIRATION_DATE_KEY)?.value || "0"
   );
 
-  console.log(`Token: ${token}`, `Refresh: ${refreshToken}`);
-
   if (code) {
-    console.log("I am checking for code");
-
     return checkForCode(request);
   }
 
   if (!token && !refreshToken) {
-    console.log("I am redirecting to auth");
-
     return redirectToAuth();
   }
 
   if ((!token || Date.now() > expiresAt) && refreshToken) {
-    console.log("I am re-authenticating");
-
     return reAuthenticate(request);
   }
 

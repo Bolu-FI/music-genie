@@ -1,9 +1,5 @@
 import { Navbar as NextUINavbar } from "@nextui-org/navbar";
 import clsx from "clsx";
-
-import Menu from "./Menu";
-
-import { UserAvatar } from "@/rsc";
 import { DefaultProps } from "@/types";
 
 const classNames = {
@@ -19,10 +15,10 @@ export const Navbar = ({ className }: DefaultProps) => {
       maxWidth="2xl"
       position="sticky"
     >
-      <Menu>
-        {/*@ts-expect-error Async Server Component*/}
-        <UserAvatar />
-      </Menu>
+      {/*<Menu>*/}
+      {/*  /!*@ts-expect-error Async Server Component*!/*/}
+      {/*  <UserAvatar />*/}
+      {/*</Menu>*/}
     </NextUINavbar>
   );
 };

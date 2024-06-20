@@ -624,6 +624,91 @@ export const LyricIcon = ({
   </svg>
 );
 
+export const ArrowUpTiltedRightIcon = ({
+  size = 32,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 32 32"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M10.8124 20.9679L20.9326 10.8477M20.9326 10.8477L12.5983 10.8477M20.9326 10.8477L20.9326 19.182"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+  </svg>
+);
+
+export const ShareIcon = ({
+  size = 32,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 25 23"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M12.69 14.0162L12.69 2.74008M12.69 2.74008L8.04685 7.3832M12.69 2.74008L17.3331 7.3832M20.9812 12.358V17.0011C20.9812 18.4664 19.7934 19.6543 18.328 19.6543L7.05189 19.6543C5.58657 19.6543 4.39868 18.4664 4.39868 17.0011L4.39868 12.358"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+  </svg>
+);
+
+export const SyncedIcon = ({
+  size = 32,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 22 22"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M1.08008 3.82812H5.73631"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+    <path
+      d="M1.08008 10.0508L5.73631 10.0508"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+    <path
+      d="M10.9695 1.82812C16.0011 1.82812 20.08 5.90704 20.08 10.9386C20.08 15.9702 16.0011 20.0492 10.9695 20.0492C10.9695 20.0492 5.63584 20.0492 2.96899 15.6068"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+    />
+    <path
+      d="M11.1755 5.38477V10.9395L15.8588 13.8298"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+    />
+  </svg>
+);
+
 export const BoxAddIcon = ({
   size = 40.41,
   height,
@@ -1091,6 +1176,385 @@ export const BellIcon = ({
   </svg>
 );
 
+export const DownloadIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    fill="none"
+    height={size || height}
+    viewBox="0 0 21 21"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M10.2047 5.1543V15.0165M10.2047 15.0165L13.5723 11.6489M10.2047 15.0165L6.83713 11.6489"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+    <circle
+      cx="10.2052"
+      cy="10.2062"
+      r="9.26081"
+      stroke="currentColor"
+      strokeWidth="1.68378"
+    />
+  </svg>
+);
+
+export const ClockIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    fill="none"
+    height={size || height}
+    viewBox="0 0 23 26"
+    width={size || width}
+    {...props}
+  >
+    <circle
+      cx="11.8271"
+      cy="14.7461"
+      r="10.1"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+    <path
+      d="M11.8271 7.74609V12.7461"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+    <path
+      d="M15.8271 1.74609L7.82715 1.74609"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+  </svg>
+);
+
+export const VoidIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    fill="none"
+    height={size || height}
+    viewBox="0 0 24 24"
+    width={size || width}
+    {...props}
+  >
+    <path
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      d="M12 21.5a9.5 9.5 0 1 0 0-19a9.5 9.5 0 0 0 0 19m6.713-2.787L5.287 5.287"
+    />
+  </svg>
+);
+export const UploadIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 25 24"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M12.6897 14.2486L12.6897 2.9725M12.6897 2.9725L8.0466 7.61562M12.6897 2.9725L17.3328 7.61562M20.981 12.5904V17.2335C20.981 18.6988 19.7931 19.8867 18.3278 19.8867L7.05165 19.8867C5.58632 19.8867 4.39844 18.6988 4.39844 17.2335L4.39844 12.5904"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+  </svg>
+);
+export const AddToLibraryIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 24 24"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M3.56152 11.7227L3.56152 20.4933"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+    <path
+      d="M9.32422 11.7227L9.32422 20.4933"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+    <path
+      d="M15.0869 20.4919L15.0869 3.20508L17.9681 5.19971L20.8492 7.19435L20.8492 20.4919H15.0869Z"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+  </svg>
+);
+
+export const AddToQueueIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 24 25"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M11.3632 3.8418L6.59244 3.8418C5.04256 3.8418 3.78613 5.09822 3.78613 6.6481V6.6481C3.78613 8.19798 5.04256 9.45441 6.59244 9.45441H11.3632"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2.3573"
+    />
+    <path
+      d="M3.78613 15.0664L20.624 15.0664"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.3573"
+    />
+    <path
+      d="M3.78613 20.6797L20.624 20.6797"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.3573"
+    />
+    <path
+      d="M15.5732 6.36747H18.0989M20.6246 6.36747L18.0989 6.36747M18.0989 6.36747V3.8418M18.0989 6.36747V8.89315"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+  </svg>
+);
+
+export const DjIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    fill="none"
+    height={size || height}
+    viewBox="0 0 22 24"
+    width={size || width}
+    {...props}
+  >
+    <circle
+      cx="11.2055"
+      cy="12.0815"
+      r="2.75528"
+      stroke="currentColor"
+      strokeWidth="2.02054"
+    />
+    <path
+      d="M11.2052 22.1839C5.62567 22.1839 1.10254 17.6608 1.10254 12.0812C1.10254 6.50165 5.62567 1.97852 11.2052 1.97852C14.1179 1.97852 16.7426 3.21108 18.5864 5.18308"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2.02054"
+    />
+    <path
+      d="M20.2954 9.45508V17.0321M20.2954 17.0321V20.7951C20.2954 21.5442 19.7619 22.1976 19.0131 22.174C17.7749 22.135 16.0859 21.6909 16.0859 19.5578C16.0859 16.1902 20.2954 17.0321 20.2954 17.0321Z"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.68378"
+    />
+  </svg>
+);
+export const UserMusicIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    fill="none"
+    height={size || height}
+    viewBox="0 0 24 26"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M15.573 6.75624C15.573 8.6161 14.0653 10.1238 12.2055 10.1238C10.3456 10.1238 8.83789 8.6161 8.83789 6.75624C8.83789 4.89638 10.3456 3.38867 12.2055 3.38867C14.0653 3.38867 15.573 4.89638 15.573 6.75624Z"
+      stroke="currentColor"
+      strokeWidth="2.02054"
+    />
+    <path
+      d="M8.83748 13.4922L5.28571 15.86C4.34886 16.4846 3.78613 17.5361 3.78613 18.662V20.3396C3.78613 21.2075 4.48973 21.9111 5.35766 21.9111H12.2051"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+    <path
+      d="M19.7827 6.75586V14.3329M19.7827 14.3329V18.0959C19.7827 18.845 19.2492 19.4984 18.5004 19.4748C17.2622 19.4358 15.5732 18.9917 15.5732 16.8586C15.5732 13.491 19.7827 14.3329 19.7827 14.3329Z"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.68378"
+    />
+  </svg>
+);
+export const MiniPlayerIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    fill="none"
+    height={size || height}
+    viewBox="0 0 24 21"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M11.3633 13.4299C11.3633 12.4999 12.1171 11.7461 13.0471 11.7461L20.6241 11.7461C21.554 11.7461 22.3079 12.4999 22.3079 13.4299V17.6393C22.3079 18.5693 21.554 19.3231 20.6241 19.3231H13.0471C12.1171 19.3231 11.3633 18.5693 11.3633 17.6393L11.3633 13.4299Z"
+      fill="currentColor"
+    />
+    <path
+      d="M8.83758 18.4802H4.62812C3.69819 18.4802 2.94434 17.7264 2.94434 16.7964L2.94434 5.00996C2.94434 4.08003 3.69819 3.32617 4.62812 3.32617L19.7822 3.32617C20.7121 3.32617 21.466 4.08003 21.466 5.00996V9.21942"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.02054"
+    />
+  </svg>
+);
+export const FullScreenIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    fill="none"
+    height={size || height}
+    viewBox="0 0 21 19"
+    width={size || width}
+    {...props}
+  >
+    <g clipPath="url(#clip0_2190_10064)">
+      <path
+        d="M1.5459 6.66762L1.5459 3.42032C1.5459 2.82251 2.03052 2.33789 2.62833 2.33789L5.87563 2.33789"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.02054"
+      />
+      <path
+        d="M18.8643 6.66762V3.42032C18.8643 2.82251 18.3796 2.33789 17.7818 2.33789L14.5345 2.33789"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.02054"
+      />
+      <path
+        d="M1.5459 12.4398L1.5459 15.6871C1.5459 16.2849 2.03052 16.7695 2.62833 16.7695H5.87563"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.02054"
+      />
+      <path
+        d="M18.8643 12.4398V15.6871C18.8643 16.2849 18.3796 16.7695 17.7818 16.7695H14.5345"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.02054"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_2190_10064">
+        <rect
+          fill="white"
+          height="17.3189"
+          transform="translate(0.102539 0.894531)"
+          width="20.2054"
+        />
+      </clipPath>
+    </defs>
+  </svg>
+);
+export const RadioIcon = ({
+  size = 24,
+  height,
+  width,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    height={size || height}
+    viewBox="0 0 24 25"
+    width={size || width}
+    {...props}
+  >
+    <g clipPath="url(#clip0_2190_10983)">
+      <circle cx="12.2056" cy="12.6714" fill="currentColor" r="1.96441" />
+      <path
+        d="M15.6055 8.18555C16.8591 9.18535 17.6624 10.7259 17.6624 12.454C17.6624 14.1822 16.8591 15.7227 15.6055 16.7225M8.80601 16.7225C7.55238 15.7227 6.74902 14.1822 6.74902 12.454C6.74902 10.8124 7.47397 9.34004 8.62119 8.3397"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.96441"
+      />
+      <path
+        d="M18.3254 4.81445C20.5819 6.60383 22.0279 9.36093 22.0279 12.4538C22.0279 15.5468 20.5819 18.3039 18.3254 20.0932M6.08636 20.0932C3.82983 18.3039 2.38379 15.5468 2.38379 12.4538C2.38379 9.51574 3.68869 6.88068 5.75368 5.09035"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.96441"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_2190_10983">
+        <rect
+          fill="white"
+          height="23.573"
+          transform="translate(0.418945 0.884766)"
+          width="23.573"
+        />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
 export const ChevronRightIcon = ({
   size = 40.41,
   height,
@@ -1170,7 +1634,7 @@ export const EyeClosedIcon = ({
   >
     <path
       d="M14.9925 19.6455C13.029 19.6321 11.2334 19.0137 9.67316 18.1417M14.9925 19.6455V22.7272M14.9925 19.6455C17.0114 19.6593 18.8439 19.0311 20.4222 18.1417M26.457 12.4872C26.457 12.4872 25.8117 13.4806 24.6531 14.7272M3.429 12.3298C3.429 12.3298 4.13449 13.4029 5.38817 14.7272M5.38817 14.7272L2.67316 17.4422M5.38817 14.7272C6.45309 15.8521 7.91355 17.1582 9.67316 18.1417M9.67316 18.1417L7.67316 21.2272M20.4222 18.1417L22.1732 21.2272M20.4222 18.1417C22.1784 17.152 23.6199 15.8389 24.6531 14.7272M24.6531 14.7272L27.1732 17.2473"
-      stroke="#898989"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeWidth="2"
     />

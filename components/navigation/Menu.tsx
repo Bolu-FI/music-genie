@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment, PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 import { NavbarContent, NavbarItem } from "@nextui-org/navbar";
 import NextLink from "next/link";
 import clsx from "clsx";
@@ -31,7 +31,7 @@ const Menu: React.FC<PropsWithChildren<Prop>> = ({ children }) => {
   const pathname = usePathname();
 
   return (
-    <Fragment>
+    <div>
       <ul className="flex pt-1.5">
         {siteConfig.navMenuItems.map((item) => (
           <NavbarItem
@@ -75,7 +75,7 @@ const Menu: React.FC<PropsWithChildren<Prop>> = ({ children }) => {
         ))}
         {children}
       </NavbarContent>
-    </Fragment>
+    </div>
   );
 };
 
