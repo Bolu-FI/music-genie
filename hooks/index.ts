@@ -4,3 +4,4 @@ export * from "./usePlayer";
 export * from "./useProfile";
 export * from "./usePlaylist";
 export * from "./useArtist";
+export * from "./useTrack";

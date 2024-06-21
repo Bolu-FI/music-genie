@@ -13,7 +13,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/popover";
 import {
   AudioOutputIcon,
   BoxAddIcon,
-  FavouriteIcon,
   ListIcon,
   NextIcon,
   PauseIcon,
@@ -31,6 +30,7 @@ import usePlayback from "@/hooks/usePlayback";
 import { formatMsTime } from "@/helpers";
 import LyricButton from "@/components/player/LyricButton";
 import MoreOptions from "@/components/player/MoreOptions";
+import SaveTrack from "@/components/player/SaveTrack";
 
 type Prop = DefaultProps & {};
 
@@ -89,14 +89,6 @@ const Player: React.FC<Prop> = ({ className }) => {
       player.addListener("progress", ({ position }: any) => {
         setPosition(position);
       });
-      //
-      player.addListener("playback_error", (state) => {
-        console.log(state);
-      });
-      //
-      // player.addListener("authentication_error", ({ message }: any) => {});
-      //
-      // player.addListener("account_error", ({ message }: any) => {});
 
       player.addListener("player_state_changed", (state: any) => {
         setPlayContext(state);
@@ -210,7 +202,10 @@ const Player: React.FC<Prop> = ({ className }) => {
         className="ml-6"
         track={playContext?.track_window.current_track}
       />
-      <PlayerOptions className="ml-auto" />
+      <PlayerOptions
+        track={playContext?.track_window.current_track}
+        className="ml-auto"
+      />
     </div>
   );
 };
@@ -333,12 +328,16 @@ const TrackDetails = ({
   </div>
 );
 
-const PlayerOptions = ({ className }: { className?: string }) => {
+const PlayerOptions = ({
+  className,
+  track,
+}: {
+  className?: string;
+  track: Track;
+}) => {
   return (
     <div className={clsx(className, "flex gap-1.5 items-center")}>
-      <button aria-label="favourite">
-        <FavouriteIcon fill="none" />
-      </button>
+      <SaveTrack trackId={track.id} />
       <button aria-label="Add to playlist">
         <BoxAddIcon fill="none" />
       </button>

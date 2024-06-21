@@ -74,9 +74,19 @@ export class Api {
     return this.mutate<T>(endpoint, "PUT", config);
   }
 
+  static async delete<T extends Record<string, any> | string>(
+    endpoint: string,
+    config?: {
+      query?: Record<string, any>;
+      headers?: Record<string, any>;
+    },
+  ) {
+    return this.mutate<T>(endpoint, "DELETE", config);
+  }
+
   private static async mutate<T extends Record<string, any> | string>(
     endpoint: string,
-    method: "PUT" | "POST",
+    method: "PUT" | "POST" | "DELETE",
     config?: {
       query?: Record<string, any>;
       headers?: Record<string, any>;
